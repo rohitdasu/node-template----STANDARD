@@ -34,7 +34,7 @@ app.use("/api/secure", secureRoutes);
  * root api
  */
 app.get("/", (req, res) => {
-  res.send("this is root api");
+  res.send("this is docker root api....Yippeeeeeeeee :)");
 });
 
 /**

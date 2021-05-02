@@ -1,0 +1,9 @@
+{
+    "app":{
+        "dbConfig": {
+            "dbName": "test",
+            "password": "axpDDkzpcObyVKri",
+            "username": "rohitdasu"
+        }
+    }
+}

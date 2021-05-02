@@ -16,7 +16,7 @@ mongoose
       "?retryWrites=true&w=majority",
     { useNewUrlParser: true }
   )
-  .then((res) => {
+  .then(() => {
     console.log("DB Connected Successfully! ");
   })
   .catch((err) => {

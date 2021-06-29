@@ -4,19 +4,19 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-var cors = require("cors");
-
+const cors = require("cors");
+const helmet = require("helmet");
 /**
  * routes import
  */
-const authRoutes = require("./routes/auth/auth");
-const secureRoutes = require("./routes/secure/secure");
-const db = require("./db/db");
+const authRoutes = require("./src/routes/auth/auth");
+const secureRoutes = require("./src/routes/secure/secure");
+const db = require("./src/db/db"); // don't remove this line -- It makes the DB to work.
 
 /**
  * port number is initialised
  */
-const port = 3000 || process.env.PORT;
+const port = process.env.PORT || 3000;
 
 /**
  * using bodyparser middleware to have json type values in this app
@@ -24,6 +24,7 @@ const port = 3000 || process.env.PORT;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
+app.use(helmet()); // For data security
 /**
  * setting routes
  */
@@ -34,7 +35,7 @@ app.use("/api/secure", secureRoutes);
  * root api
  */
 app.get("/", (req, res) => {
-  res.send("this is docker root api....Yippeeeeeeeee :)");
+  res.send("this is root api....Yippeeeeeeeee :)");
 });
 
 /**
